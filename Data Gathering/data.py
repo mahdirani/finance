@@ -9,10 +9,10 @@ currency_pair = "btcusd"
 url = f"https://www.bitstamp.net/api/v2/ohlc/{currency_pair}/"
 
 start = "2023-07-01"
-end = "2023-07-02"
+end = "2023-07-30"
 timeframe = 300
 
-dates = pd.date_range(start, end, freq="1H")
+dates = pd.date_range(start, end, freq="6H")
 dates = [ int(x.value/10**9) for x in list(dates)]
 print(dates)
 

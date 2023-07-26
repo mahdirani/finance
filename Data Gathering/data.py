@@ -5,14 +5,14 @@ import requests
 import datetime
 import pandas as pd
 
-currency_pair = "btcusd"
+currency_pair = "eurusd"
 url = f"https://www.bitstamp.net/api/v2/ohlc/{currency_pair}/"
 
-start = "2023-07-01"
-end = "2023-07-30"
+start = "2023-01-01"
+end = "2023-07-25"
 timeframe = 300
 
-dates = pd.date_range(start, end, freq="6H")
+dates = pd.date_range(start, end, freq="12H")
 dates = [ int(x.value/10**9) for x in list(dates)]
 print(dates)
 

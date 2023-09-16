@@ -1,0 +1,51 @@
+------------------------- Current TimeFrame -------------------------
+Tk_norm = (rolling_max[9] + rolling_min[9]) / 2
+Kj_norm = (rolling_max[26] + rolling_min[26]) / 2
+S_A_norm = (Tk_norm + Kj_norm) / 2
+S_B_norm = (rolling_max[52] + rolling_min[52]) / 2
+ 
+            ------------- Adv Parameters -------------
+Tk_adv = Tk_norm.shift(26)
+Kj_adv = Kj_norm.shift(26)
+S_A_adv = S_A_norm.shift(26)
+S_B_adv = S_B_norm.shift(26)
+Chiko_adv = df["Close"].shift(26)
+ 
+------------------------- 2X TimeFrame -------------------------
+Tk_norm_x2 = (rolling_max[18] + rolling_min[18]) / 2
+Kj_norm_x2 = (rolling_max[52] + rolling_min[52]) / 2  ********* ==== S_B_norm
+S_A_norm_x2 = (Tk_norm_x2 + S_B_norm) / 2
+S_B_norm_x2 = (rolling_max[104] + rolling_min[104]) / 2  
+ 
+            ------------- Adv Parameters -------------
+Tk_adv_x2 = Tk_norm_x2.shift(52)  
+Kj_adv_x2 = S_B_norm.shift(52)
+S_A_adv_x2 = S_A_norm_x2.shift(52)
+S_B_adv_x2 = S_B_norm_x2.shift(52)
+Chiko_adv_x2 = df["Close"].shift(52)
+ 
+------------------------- 3X TimeFrame -------------------------
+Tk_norm_x3 = (rolling_max[27] + rolling_min[27]) / 2   ********* =~=~ Kj_norm
+Kj_norm_x3 = (rolling_max[78] + rolling_min[78]) / 2
+S_A_norm_x3 = (Kj_norm + Kj_norm_x3) / 2  
+S_B_norm_x3 = (rolling_max[156] + rolling_min[156]) / 2 
+ 
+            ------------- Adv Parameters -------------
+Tk_adv_x3 = Kj_norm.shift(78)
+Kj_adv_x3 = Kj_norm_x3.shift(78)
+S_A_adv_x3 = S_A_norm_x3.shift(78)
+S_B_adv_x3 = S_B_norm_x3.shift(78)
+Chiko_adv_x3 = df["Close"].shift(78)
+ 
+------------------------- 4X TimeFrame -------------------------
+Tk_norm_x4 = (rolling_max[36] + rolling_min[36]) / 2
+Kj_norm_x4 = (rolling_max[104] + rolling_min[104]) / 2  ********* ==== S_B_norm_x2
+S_A_norm_x4 = (Tk_norm_x4 + S_B_nrom_x2) / 2 
+S_B_norm_x4 = (rolling_max[208] + rolling_min[205]) / 2  
+ 
+            ------------- Adv Parameters -------------
+Tk_adv_x4 = Tk_norm_x4.shift(104)
+Kj_adv_x4 = S_B_norm_x2.shift(104)
+S_A_adv_x4 = S_A_norm_x4.shift(104)
+S_B_adv_x4 = S_B_norm_x4.shift(104)
+Chiko_adv_x4 = df["Close"].shift(104)
